@@ -1,0 +1,19 @@
+nav{
+    background-color: gray;
+    color: aliceblue;
+    text-align: left;
+    opacity: 0.8;
+    transition: width 2s;
+    position: fixed;
+    width: 0;
+}
+
+nav ul{
+    color: aliceblue;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.show{
+    width: 250px;
+}
