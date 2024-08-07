@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>basic DOM</title>
+</head>
+<body>
+    <div class="wrapper">
+        <h1 id="h1-hello">Hello</h1>
+    </div>
+    <h2> số 1 </h2>
+    <h2> số 2 </h2>
+    <h2> số 3 </h2>
+</body>
+</html>
+
+<script>
+    let h1 = document.getElementById('h1-hello');
+    h1.style.color = 'red'; // h1.style = 'color: red';
+    console.log(h1);
+    h1.innerHTML = 'Xin chao';
+    // Thêm thẻ h2 vào trong thẻ div có class là wrapper
+    let div = document.querySelector('.wrapper'); 
+    let h2 = document.createElement('h2');
+    h2.innerHTML = 'This is h2';
+    div.appendChild(h2);
+    
+    div.removeChild(h1);
+    h2 = document.getElementsByTagName("h2");
+    console.log(h2);
+    console.log(h2[2]);
+    h2[1].style.color = 'red';
+    h2[2].style.color = 'blue';
+    h2[3].style.color = 'green';
+
+    while(true){
+        h2[0].style.color = 'blue';
+        setTimeout(() => {
+            h2[0].style.color = 'red';
+        }, 1000);
+    h2[0].style.color = 'green';
+    }
+</script>

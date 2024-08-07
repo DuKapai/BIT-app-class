@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <h1>
+        Count click: <span id="count">0</span>
+    </h1>
+    <h3>
+        Time: <span id="time"></span>
+    </h3>
+    <button id="btn-count" class="btn btn-success btn-lg mt-4" onclick="increaseCount()">Click</button>
+    <button class="btn btn-dange btn-lg mt-4r" onclick="resetCount()"> Delete Counting</button>
+</body>
+</html>
+<style>
+    body {
+        text-align: center;
+    }
+</style>
+
+<script>
+    let count = 0; // Khai bao bien count
+
+window.onload = function () {
+var seconds = 10;
+var display = document.getElementById('time');
+var btn = document.getElementById('btn-count')
+startTimer(seconds, display, btn);
+    if(localStorage.getItem('count')){
+        count = parseInt(localStorage.getItem('count'));
+        document.getElementById('count').innerText = count;
+    }
+};
+
+function resetCount(){
+    count = 0;
+    document.getElementById('count').innerText = count;
+
+    localStorage.getElementById('count').innerText = count;
+}
+
+function increaseCount(){
+    count++;
+    document.getElementById('count').innerText=count;
+    localStorage.setItem('count', count);
+}
+
+    
+
+/*
+
+
+*/ 
+
+function startTimer(timer, display, btn) {
+    
+    setInterval(function () {
+        --timer;
+
+        if(timer > 0){
+            display.textD
+        } else if( timer == 0){
+            let your_name = prompt ("Enter your name: ");
+            if(confirm ("Do you want to paly again")){
+                timer = 10;
+                display.textContent = timer;
+                count = 0;
+                document.getElementById('count').innerText = count;
+                localStorage.removeItem('count');
+            }
+            else{
+                display.textContent = "END GAME";
+                btn.disabled = true;
+            }
+        }
+        else {
+            display.textContent = "END GAME";
+            btn.disabled = true;
+        }
+    }, 1000);
+}
+</script>
